@@ -146,6 +146,17 @@ set_permissions() {
   find $MODPATH/system/bin -type f -exec chmod 755 {} \+;
   find $MODPATH/system/bin -type l -exec chmod 755 {} \+;
 
+  chown -R 0:0 $MODPATH/system/etc;
+  chmod -R 755 $MODPATH/system/etc;
+  find $MODPATH/system/etc -type f -exec chmod 755 {} \+;
+  find $MODPATH/system/etc -type l -exec chmod 755 {} \+;
+
+  chown -R 0:0 $MODPATH/system/usr/share/zoneinfo;
+  chmod -R 755 $MODPATH/system/usr/share/zoneinfo;
+  find $MODPATH/system/usr/share/zoneinfo -type f -exec chmod 755 {} \+;
+  find $MODPATH/system/usr/share/zoneinfo -type l -exec chmod 755 {} \+;
+
+
   ui_print "[4/5] Installing to /data/man..";
   mkdir -p /data/man;
   cp -r $MODPATH/custom/man/* /data/man/;
